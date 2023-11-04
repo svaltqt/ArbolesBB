@@ -5,7 +5,7 @@ public class Nodo {
     private String id;
     private String nombre;
     private int edad;
-    private float nota; //Nota es Float, cambiarlo y hacer de nuevo los getters &amp; setters
+    private float nota;
     private Nodo li;
     private Nodo ld;
 

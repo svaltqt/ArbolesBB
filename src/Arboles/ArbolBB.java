@@ -43,29 +43,46 @@ public class ArbolBB {
         }
     }
 
+
     public void Insertar(String Id, String Nombre, int Edad, float Nota) {
+        // Se inicializan dos nodos, p para recorrer el árbol y ant para mantener el nodo anterior
         Nodo p = raiz, ant = null;
+        // Variable booleana para verificar si la identificación ya existe en el árbol
         boolean sw = false;
 
+        // Se recorre el árbol mientras p no sea nulo y la variable sw sea falsa
         while (p != null && !sw) {
-            ant = p;
+            ant = p; // Se actualiza el nodo anterior con el nodo actual
+
+            // Si la identificación a insertar es mayor que la del nodo actual, se mueve a la derecha
             if (Id.compareTo(p.getId()) > 0) {
                 p = p.getLd();
-            } else if (Id.compareTo(p.getId()) < 0) {
+            }
+            // Si la identificación a insertar es menor que la del nodo actual, se mueve a la izquierda
+            else if (Id.compareTo(p.getId()) < 0) {
                 p = p.getLi();
-            } else {
+            }
+            // Si la identificación a insertar es igual a la del nodo actual, se marca sw como verdadero y se sale del bucle
+            else {
                 sw = true;
             }
         }
 
+        // Si sw es verdadero, significa que la identificación ya existe en el árbol, se muestra un mensaje de error
         if (sw) {
             JOptionPane.showMessageDialog(null, "La Identificación ya existe");
-        } else {
+        }
+        // Si sw es falso, se crea un nuevo nodo con los datos proporcionados y se inserta en el árbol
+        else {
             p = new Nodo(Id, Nombre, Edad, Nota);
 
+            // Si la raíz del árbol es nula, el nuevo nodo se convierte en la raíz
             if (raiz == null) {
                 raiz = p;
-            } else {
+            }
+            // Si la raíz no es nula, se compara la identificación con la del nodo anterior
+            // Si es menor, se inserta a la izquierda del nodo anterior, de lo contrario, se inserta a la derecha
+            else {
                 if (Id.compareTo(ant.getId()) < 0) {
                     ant.setLi(p);
                 } else {
@@ -74,4 +91,45 @@ public class ArbolBB {
             }
         }
     }
+
+
+    /* Buscar Nodo*/
+
+    public void BuscarNodo(String Id) {
+        // Se inicializan dos nodos, p para recorrer el árbol y ant para mantener el nodo anterior
+        Nodo p = raiz, ant = null;
+        // Variable booleana para verificar si la identificación ya existe en el árbol
+        boolean sw = false;
+
+        // Se recorre el árbol mientras p no sea nulo y la variable sw sea falsa
+        while (p != null && !sw) {
+            ant = p; // Se actualiza el nodo anterior con el nodo actual
+
+            // Si la identificación a insertar es mayor que la del nodo actual, se mueve a la derecha
+            if (Id.compareTo(p.getId()) > 0) {
+                p = p.getLd();
+            }
+            // Si la identificación a insertar es menor que la del nodo actual, se mueve a la izquierda
+            else if (Id.compareTo(p.getId()) < 0) {
+                p = p.getLi();
+            }
+            // Si la identificación a insertar es igual a la del nodo actual, se marca sw como verdadero y se sale del bucle
+            else {
+                sw = true;
+            }
+        }
+
+        // Si sw es verdadero, significa que la identificación ya existe en el árbol, se muestra un mensaje de error
+        if (sw) {
+            JOptionPane.showMessageDialog(null, "Encontrado");
+
+
+        }
+        // Si sw es falso, se crea un nuevo nodo con los datos proporcionados y se inserta en el árbol
+        else {
+            JOptionPane.showMessageDialog(null, "El iD No existe");
+        }
+    }
+
+
 }

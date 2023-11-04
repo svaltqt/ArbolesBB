@@ -7,11 +7,14 @@ public class ProyectoArbolBB {
         String Id, Nombre;
         int Edad, opcion;
         float Nota;
-        String menu = "/*/*/*/*/* MENÚ */*/*/*/*\n"
+        String menu = "MENÚ\n"
                 + "1- Insertar\n"
                 + "2- Mostrar en PreOrden\n"
                 + "3- Mostrar en InOrden\n"
                 + "4- Mostrar en PostOrden\n"
+                + "5- Verificar iD\n"
+                + "6- Mostrar Altura del arbol\n"
+                + "7- Actualizar\n"
                 + "0- Salir\n"
                 + "Digite Opción";
 
@@ -53,6 +56,10 @@ public class ProyectoArbolBB {
                         System.out.println("Mostrar en Postorden");
                         abb.RecorridoPosorden(abb.getRaiz());
                     }
+                    break;
+                case 5:
+                    Id = JOptionPane.showInputDialog("Ingrese el Id");
+                    abb.BuscarNodo(Id);
                     break;
                 case 0:
                     System.exit(0);
