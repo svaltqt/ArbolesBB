@@ -19,13 +19,10 @@ public class ProyectoArbolBB {
                 + "Digite Opción";
 
         ArbolBB abb = new ArbolBB();
-        Nodo R = abb.getRaiz();
 
         do {
-
             opcion = Integer.parseInt(JOptionPane.showInputDialog(menu));
             switch (opcion) {
-
                 case 1:
                     Id = JOptionPane.showInputDialog("Ingrese el Id");
                     Nombre = JOptionPane.showInputDialog("Ingrese el Nombre");
@@ -37,7 +34,7 @@ public class ProyectoArbolBB {
                     if (abb.getRaiz() == null) {
                         System.out.println("Arbol vacio");
                     } else {
-                        System.out.println("Mostrar en Preorden");
+                        System.out.println("Mostrar en Preorden:");
                         abb.RecorridoPreorden(abb.getRaiz());
                     }
                     break;
@@ -61,10 +58,16 @@ public class ProyectoArbolBB {
                     Id = JOptionPane.showInputDialog("Ingrese el Id");
                     abb.BuscarNodo(Id);
                     break;
+                case 6:
+                    // Altura del Arbol
+                    break;
+                case 7:
+                    // Actualizar Elemento;
+                    break;
                 case 0:
                     System.exit(0);
             }
 
-        } while (opcion != 0);
+        } while (true);
     }
 }
