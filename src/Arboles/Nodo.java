@@ -2,7 +2,7 @@ package Arboles;
 
 public class Nodo {
 
-    private String id;
+    private int id;
     private String nombre;
     private int edad;
     private float nota;
@@ -11,7 +11,7 @@ public class Nodo {
 
 // Método Constructor
 
-    public Nodo(String id, String nombre, int edad, float nota) {
+    public Nodo(int id, String nombre, int edad, float nota) {
 
         this.id = id;
         this.nombre = nombre;
@@ -21,11 +21,11 @@ public class Nodo {
         ld=null;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
